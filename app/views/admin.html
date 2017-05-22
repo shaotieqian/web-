@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>蛋糕录入</title>
+        <link type="text/css" rel="stylesheet" href="/styles/admin.css">
+        <link type="text/css" rel="stylesheet" href="/styles/swiper.2.7.6.css">
+    </head>
+    <body>
+        <div id="header">
+        <div class="header-layout">
+            <h2 class="header-title">后台录入</h2>
+            <ul class="header-nav">
+                <li class="nav-first">
+                    <a href="/" target="_blank">首页</a>
+                </li>
+                <li>
+                    <a href="/order" target="_blank">列表页</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="con">
+            <div class="auto">
+                <div class="houtai_top">
+                    <form method="post" action="/admin/cake/new" enctype="multipart/form-data">
+                    <%if(menu._id){%>
+                    <input type="hidden" name="menu[id]" value="<%=menu._id%>"/>
+                    <%}%>
+                        <div class="group">
+                            <label for="inputTitle" class="cake">蛋糕系列</label>
+                            <input id="inputTitle" class="input" type="text" name="menu[catetoryName]" value="<%=menu.catetoryName%>"/>
+                            <br/>
+                            <%for(var cat in catetory){%>
+                            <label><input id="inputTitle" class="input1" type="radio" name="menu[catetory]" value="<%=catetory[cat]._id%>"/><%=catetory[cat].name%></label>
+                            <%}%>
+                            <br/>
+                            <label for="uploadPoster" class="cake">图片上传</label>
+                            <input id="uploadPoster" class="input" type="file" name="uploadPoster" multiple="multiple"/>
+                            <br/>
+                            <label for="inputTitle" class="cake">蛋糕名字</label>
+                            <input id="inputTitle" class="input" type="text" name="menu[title1]" value="<%=menu.title1%>"/>
+                            <br/>
+                            <label for="inputTitle" class="cake">蛋糕介绍</label>
+                            <input id="inputTitle" class="input" type="text" name="menu[title2]" value="<%=menu.title2%>"/>
+                            <br/>
+                            <label for="inputTitle" class="cake">蛋糕类型</label>
+                            <input id="inputTitle" class="input" type="text" name="menu[type]" value="<%=menu.type%>"/>
+                            <br/>
+                            <label for="inputTitle" class="cake">蛋糕原料</label>
+                            <input id="inputTitle" class="input" type="text" name="menu[material]" value="<%=menu.material%>"/>
+                            <br/>
+                            <label for="inputTitle" class="cake">蛋糕口味</label>
+                            <input id="inputTitle" class="input" type="text" name="menu[taste]" value="<%=menu.taste%>"/>
+                            <br/>
+                            <label for="inputTitle" class="cake">蛋糕价格</label>
+                            <input id="inputTitle" class="input" type="text" name="menu[price]" value="<%=menu.price%>"/>
+                            <br/>
+                        </div>
+                        <div class="group">
+                            <button type="submit">录入</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

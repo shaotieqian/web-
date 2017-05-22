@@ -1,0 +1,167 @@
+.add_address{
+	cursor:pointer;
+}
+.member-grid{
+    border:1px solid #ddd;
+}
+.member-grid thead{
+    background: #f9f9f9 none repeat scroll 0 0;
+    border:1px solid #ddd;
+    color:#8e6a55;
+    height:38px;
+    line-height:38px;
+}
+.member-grid th{
+	border:1px solid #ddd;
+}
+.member-grid tbody td{
+	border:1px solid #ddd;
+	font-size:20px;
+}
+.lighthigh .action-set-default{
+    display: none;
+}
+.label-default{
+    display: none;
+}
+.lighthigh .label-default{
+    background-color: #e39f2c;
+    color:white;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*new address*/
+.modal-dialog {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #282828;
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	z-index: 199;
+}
+
+.modal-content {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 48%;
+	width: 530px;
+	margin-left: -225px;
+	margin-top: -195px;
+	height: 450px;
+	overflow-y: auto;
+	background: #282828;
+	z-index: 200;
+	border-radius: 8px;
+	-webkit-box-shadow: #000 0px 0px 10px;
+	-moz-box-shadow: #000 0px 0px 10px;
+	box-shadow: #000 0px 0px 10px;
+}
+
+.close {
+	position: absolute;
+	background: url(../images/gongyong/closed.png);
+	top: 10px;
+	right: 20px;
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.modal-title {
+	width: 450px;
+	height: 40px;
+	background: #282828;
+	color: #EEEEEE;
+	font-size: 25px;
+}
+
+#deliveryAddressLabel {
+	width: 100%;
+	border-bottom: 1px solid #505050;
+	margin-top:10px;
+}
+
+.modal-body {
+	margin-top: 25px;
+}
+
+.modal-body select {
+	background-color: #FFFFFF;
+	position: relative;
+	left:20px;
+}
+.area-intro {
+	position: relative;
+	text-decoration: none;
+	width: 450px;
+	height: 40px;
+	left:20px;
+	background: #282828;
+	color: #EEEEEE;
+	font-size: 15px;
+}
+
+.form-group {
+	width:100%;
+	height:100px;
+	margin-bottom:20px;
+	color: #EEEEEE;
+	font-size: 15px;
+}
+
+.form-group1 {
+	width:100%;
+	margin-bottom:50px;
+	color: #EEEEEE;
+	font-size: 15px;
+}
+
+.form-group label {
+    position: relative;
+    left:20px;
+    top:15px;
+}
+.form-group1 label {
+    position: relative;
+	left:-260px;
+}
+
+.form-group textarea {
+	background-color: #FFFFFF;
+	position: relative;
+	left:20px;
+	float: left;
+	font-size: 15px;
+	width: 470px;
+	color: #282828;
+	padding: 5px;
+	margin-top: 30px;
+}
+
+.form-group1 input {
+	background-color: #FFFFFF;
+	position: relative;
+	left:20px;
+	float: left;
+	font-size: 15px;
+	width: 270px;
+	color: #282828;
+	padding: 5px;
+	margin-top: 30px;
+}
+
+.modal-footer {
+	float: right;
+	position: relative;
+	right: 30px;
+	bottom:-10px;
+}

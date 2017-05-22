@@ -1,0 +1,117 @@
+.dt_top {
+	float: left;
+	width: 1198px;
+	height: 530px;
+	border: 1px solid #dddddd;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	border-radius: 5px;
+}
+
+.dtt_left {
+	float: left;
+	width: 550px;
+	height: 450px;
+	margin-left: 120px;
+	margin-top: 40px;
+}
+
+.dtt_right {
+	float: left;
+	width: 500px;
+	height: 450px;
+	margin-top: 40px;
+}
+
+.dtr_title {
+	float: left;
+	width: 500px;
+}
+
+.dtr_t01 {
+	font-size: 21px;
+}
+
+.dtr_t02 {
+	margin-top: 5px;
+	color: #df143e;
+	font-size: 16px;
+}
+
+.dtt_sel {
+	float: left;
+	width: 400px;
+	margin-top: 10px;
+}
+
+.dtt_selline {
+	float: left;
+	width: 333px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	height: 1px;
+	background: #DDDDDD;
+}
+.dtt_shop {
+	float: left;
+	width: 500px;
+	margin-top: 20px;
+}
+
+.add_shop {
+	float: left;
+	width: 130px;
+	height: 50px;
+	background: #090909;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 18px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.now_buy {
+	float: left;
+	width: 130px;
+	height: 50px;
+	background: #DD0330;
+	cursor: pointer;
+	margin-left: 20px;
+	color: #FFFFFF;
+	font-size: 18px;
+	text-align: center;
+	line-height: 50px;
+}
+.dtt_ad {
+	float: left;
+	width: 500px;
+	font-size: 12px;
+	margin-top: 20px;
+	color: #333333;
+}
+
+.ad_about {
+	margin-top: 10px;
+}
+
+.ad_about span {
+	color: #DD0330;
+	font-size: 14px;
+}
+/*number*/
+.dtt_number {
+	float: left;
+	width: 500px;
+	background: #FFFFFF;
+}
+
+#tab_number {
+	float: left;
+	width: 100px;
+	margin-top: 5px;
+}
+
+.dtt_number p {
+	float: left;
+	font-size: 30px;
+}

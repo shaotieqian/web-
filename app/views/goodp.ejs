@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>订购蛋糕</title>
+<link type="text/css" rel="stylesheet" href="/styles/reset.css">
+<link type="text/css" rel="stylesheet" href="/styles/classify.css">
+<link type="text/css" rel="stylesheet" href="/styles/swiper.2.7.6.css">
+</head>
+<body>
+    <div class="topbox">
+        <div class="auto">
+            <div class="logo">
+                <a href="#"><img src="/images/gongyong/logo.png"></a>
+            </div>
+            <%if(user){%>
+            <ul class="nav">
+            <li><a href="/"><img style="vertical-align:middle" src="/images/gongyong/vip.png"><span>首页</span></a></li>
+                <li><a href="/order"><img style="vertical-align:middle" src="/images/gongyong/about_mes.png"><span>订购蛋糕</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/vip_area.png"><span>企业专区</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/order.png"><span>关于我们</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/home.png"><span><%=user.name%></span></a>
+                <div class="vip1">
+                    <div class="manage">
+                    <a href="/information">个人信息</a><br />
+                    </div>
+                    <div class="inf">
+                    <a href="/porder" >订单查看</a><br />
+                    </div>
+                    <div class="logout">
+                    <a href="/logout" id="logout">登出</a><br />
+                    </div>
+                    <div class="shopping_car">
+                                <p class="car"><img src="/images/gongyong/shopping_cart.png"/></p>
+                                <p class="car_shop">快去选购吧!</p>
+                    </div>
+                </div>
+                </li>
+            </ul>
+            <%}else{%>
+            <ul class="nav">
+                <li><a href="/"><img style="vertical-align:middle" src="/images/gongyong/vip.png"><span>首页</span></a></li>
+                <li><a href="/order"><img style="vertical-align:middle" src="/images/gongyong/about_mes.png"><span>订购蛋糕</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/vip_area.png"><span>企业专区</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/order.png"><span>关于我们</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/home.png"><span>会员登录</span></a>
+                <div class="vip">
+                    <div class="load" id="login">
+                    立即登陆<br />
+                    </div>
+                    <div class="reg" id="register">
+                    注册账号<br />
+                    </div>
+                </div>
+                </li>
+            </ul>
+            <%}%>
+            <!--弹出窗口-->
+            <div class="window_bg"></div>
+                <div id="login_window">
+                    <div class="data_title">
+                        <h4>用户登录</h4>
+
+                        <div id="lo_closed"></div>
+                    </div>
+                    <form method="POST" action="/user/signin">
+                        <p class="username"><img src="/images/gongyong/people.png"><input type="text" name="user[name]" placeholder="账号"></p>
+
+                        <p class="password"><img src="/images/gongyong/key.png"><input type="password" name="user[password]" placeholder="用户密码"></p>
+
+                        <p class="errorshow" id="login_error"></p>
+
+                        <p class="ret"><a href="/">忘记密码？</a></p>
+
+                        <button id="login_l" type="submit">登录</button>
+
+                        <p id="login_r">新用户注册</p>
+                    </form>
+                </div>
+
+                <div id="re_window">
+                    <div class="data_title">
+                        <h4>新用户注册</h4>
+
+                        <div id="re_closed"></div>
+                    </div>       
+
+                    <form method="POST" action="/user/signup">
+                        <p class="re_user"><input id="re_user" type="text" name="user[name]" placeholder="请输入账号">
+                        <p class="re_password"><input id="re_password"type="password" name="user[password]"  placeholder="设置6位以上的登录密码"></p>
+
+                        <p class="errorshow" id="error"></p>
+
+                        <button id="re_l" type="submit">注册</button>
+
+                        <p id="re_w">如果您已是注册用户，请您<span id="re_login">登录</span></p>
+
+                    </form>
+                </div>
+        </div>
+    </div>
+<!--bg-->
+    <div class="bg">
+<!--cake-->
+    <div class="list_auto">
+
+    <div class="list_title"><img src="/images/dinggou/list_classify.png"><span>蛋糕分类</span></div>
+
+    <% catetory.forEach((cat)=>{ %>
+        <div class="lists_goods">
+            <div class="lsgo_t">
+                <span><%=cat.name%></span><img src="/images/dinggou/down_icon.png"/>
+            </div>
+                    <div class="ligo_p" id="g_area_1">
+                    <% cat.cake.forEach((item)=>{%>
+                        <a href="/cake/<%=item.id%>">
+                            <div class="lproduct">
+                                <p class="lp_01"><img src="/upload/<%=item.poster%>"></p>
+                                <p class="lp_02"><span class="lp_02_1"><%=item.title1%></span>
+                                                 <span class="lp_02_2"></span>
+                                </p>
+                                <div class="lproduct_ms">
+                                    <ul>
+                                        <li style="margin-bottom: 0.8rem;"><b><%=item.title2%></b></li>
+                                        <li><span class="ll_01">类型：</span><span class="ll_02"><%=item.type%></span></li>
+                                        <li><span class="ll_01">原料：</span><span class="ll_02"><%=item.material%></span></li>
+                                        <li><span class="ll_01">口味：</span><span class="ll_02"><%=item.taste%></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                        <% }) %>
+                    </div>
+        </div>
+<% }) %>
+    <div class="lists_goods">
+        <div class="lsgo_t">
+            <span>周边品 Nearby Series</span><img src="/images/dinggou/down_icon.png"/>
+        </div>
+
+        <div class="ligo_p">
+            <a href="#">
+                <div class="lproduct">
+                    <p class="lp_01"><img src="/images/dinggou/92.jpg"></p>
+
+                    <p class="lp_02"><span class="lp_02_1">小瓷猫绿植</span>
+                                     <span class="lp_02_2"></span>
+                    </p>
+
+                    <div class="lproduct_ms">
+                        <ul>
+                            <li><span class="ll_01" style="color:red">*装饰用品不可食用。</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="lproduct arr_right">
+                    <p class="lp_01"><img src="/images/dinggou/119.jpg"></p>
+
+                    <p class="lp_02"><span class="lp_02_1">花环-释放青春</span><span class="lp_02_2"></span></p>
+
+                    <div class="lproduct_ms">
+                        <ul>
+                            <li><span class="ll_01" style="color:red">*装饰用品不可食用。</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="lproduct arr_right">
+                    <p class="lp_01"><img src="/images/dinggou/117.jpg"></p>
+
+                    <p class="lp_02"><span class="lp_02_1">卡通眼镜</span><span class="lp_02_2"></span></p>
+
+                    <div class="lproduct_ms">
+                        <ul>
+                            <li><span class="ll_01" style="color:red">*装饰用品不可食用。</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="lproduct arr_right">
+                    <p class="lp_01"><img src="/images/dinggou/61.jpg"></p>
+
+                    <p class="lp_02"><span class="lp_02_1">大蜡烛</span><span class="lp_02_2"></span></p>
+
+                    <div class="lproduct_ms">
+                        <ul>
+                            <li><span class="ll_01" style="color:red">*装饰用品不可食用。</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="lproduct">
+                    <p class="lp_01"><img src="/images/dinggou/67.jpg"></p>
+
+                    <p class="lp_02"><span class="lp_02_1">数字蜡烛</span><span class="lp_02_2"></span></p>
+
+                    <div class="lproduct_ms">
+                        <ul>
+                            <li><span class="ll_01" style="color:red">*装饰用品不可食用。</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    </div>
+</div>
+<!--footer-->
+    <div class="footer">
+        <div class="auto">
+            <div class="foot_title">
+                <div class="ft_01">
+                    <img src="/images/gongyong/index.jpg">
+                    <div class="ft_01_t">下午茶</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index01.png"></span><br/>
+                        <span class="ft_01_t1_2">下午茶</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index1.jpg">
+                    <div class="ft_01_t">时令</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index02.png"></span><br/>
+                        <span class="ft_01_t1_2">时令</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index2.jpg">
+                    <div class="ft_01_t">咖啡</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index03.png"></span><br/>
+                        <span class="ft_01_t1_2">咖啡</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index3.jpg">
+                    <div class="ft_01_t">周边品</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index04.png"></span><br/>
+                        <span class="ft_01_t1_2">周边品</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index4.jpg">
+                    <div class="ft_01_t">每实专题</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index05.png"></span><br/>
+                        <span class="ft_01_t1_2">每实专题</span>
+                    </div>
+                </div>
+            </div>
+            <div class="foot_line"></div>
+            <div class="foot_logo">
+                <img src="/images/gongyong/logo.png"/>
+            </div>
+            <div class="foot_nav">
+                <ul>
+                    <a href="#"><li class="liactive">首页</li></a>
+                    <a href="#"><li>订购蛋糕</li></a>
+                    <li>各种专区</li>
+                    <li>各种专题</li>
+                    <a href="#"><li>关于我们</li></a>
+                    <a id="foot_login"><li>会员登录</li></a>
+                </ul>
+            </div>
+            <div class="foot_about">
+                <div class="about_us">
+                    <img src="/images/gongyong/phone.png"/>
+                    <span>订购咨询热线：</span>
+                    <span class="about_size">1000 200 300</span>
+                    <img class="foot_mess" src="/images/gongyong/message.png"/>
+                    <a href="#">联系我们</a>
+                </div>
+            </div>
+            <div class="foot_ts">
+                <ul>
+                    <li class="tiactive">至少提前5小时订购</li>
+                    <li>全宇宙免费配送</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="foot_foot">
+            <p>宇宙ICP备12345678号 宇宙公网安备12345678910111号</p>
+            <p class="foot_ms">2017 All rights reserved</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/list.js"></script>
+	</body>
+</html>

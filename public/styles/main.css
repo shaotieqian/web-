@@ -1,0 +1,118 @@
+.con{
+	float: left;
+	width: 100%;
+	min-width: 1200px;
+	background: #181818;
+	padding-bottom: 80px;
+}
+/*banner*/
+.out{
+	width: 100%;
+	position: relative;
+}
+.img_box{
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	font-size: 0;
+}
+.linkweb{
+	width: 100%;
+	position: relative;
+	display: none;
+	opacity: 0;
+}
+.banner{
+	width:100%;
+}
+.num_box{
+	position: relative;
+	height: 10px;
+	bottom: 20px;
+	font-size: 0;
+	text-align: center;
+}
+.num1{
+	width: 10px;
+	height: 100%;
+	display: inline-block;
+	margin: 0 5px;
+	background: #999;
+	background:white; 
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 5px;
+}
+.out div.hot{
+	background: #c81602;
+}
+.banner_a {
+	position: absolute;
+	width: 140px;
+	height:100px;
+	margin-left: 320px;
+	color: #FFFFFF;
+	bottom: 70px;
+	left: 50%;
+	z-index: 99;
+}
+/*分类*/
+.classify{
+
+}
+.classify_title {
+	float: left;
+	height: 30px;
+	margin-top: 25px;
+}
+.title_line {
+	float: left;
+	width: 520px;
+	height: 1px;
+	background: #2e2e2e;
+	margin-top: 12px;
+}
+.title_img {
+	float: left;
+	width: 22px;
+	margin-left: 20px;
+}
+.title_t {
+	float: left;
+	width: 103px;
+	margin-left: 15px;
+	color: #c9c9c9;
+	font-size: 20px;
+}
+.classify{
+	float: left;
+}
+
+.row1{
+	position: relative;
+	float: left;
+	width: 585px;
+	height: 400px;
+	margin-top: 30px;
+}
+
+.row2{
+	position: relative;
+	float: right;
+	width: 585px;
+	height: 400px;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+.row1_bg1{
+	position: absolute;
+	top:160px;
+	left:210px;
+	color: #FFFFFF;
+	line-height: 35px;
+	font-size: 35px;
+	font-family: "Georgia";
+	letter-spacing: 2px;
+	z-index: 100;
+}

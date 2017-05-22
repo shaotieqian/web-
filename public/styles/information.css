@@ -1,0 +1,129 @@
+.con {
+	float: left;
+	width: 100%;
+	min-width: 1200px;
+	background: #eef0f1;
+	padding-bottom: 60px;
+}
+
+.vip_auto {
+	width: 1198px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.vip_title {
+	float: left;
+	margin-top: 45px;
+	width: 1198px;
+	border: 1px solid #dddddd;
+	height: 55px;
+	line-height: 55px;
+	background: #FFFFFF;
+}
+
+.vip_title img {
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin-left: 45px;
+	margin-top: 15px;
+}
+
+.vip_title span {
+	float: left;
+	font-size: 18px;
+	color: #706f6f;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+.vip_ad {
+	float: left;
+	border: 1px solid #DDDDDD;
+	border-top: none;
+	width: 1198px;
+	height: 215px;
+	background: #FFFFFF;
+}
+
+.vip_ad01 {
+	margin: 40px auto;
+	width: 240px;
+	text-align: left;
+}
+
+.vip_ad01 p {
+	font-size: 30px;
+	margin-top: 15px;
+}
+
+.vip_data {
+	float: left;
+	width: 1199px;
+	height: 646px;
+	background: #FFFFFF;
+	border-right: 1px solid #DDDDDD;
+}
+
+.data_ad {
+	float: left;
+	width: 598px;
+	height: 215px;
+	border-right: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.data_ad01 {
+	margin-top: 20px;
+	margin-left: 250px;
+	width: 200px;
+	text-align: left;
+}
+
+.data01 {
+	float: left;
+	width: 200px;
+	height: 50px;
+}
+
+.data01 img {
+	float: left;
+	margin-left: -8px;
+}
+
+.data_ad01 p {
+	margin-top: 15px;
+}
+
+.data01 span {
+	float: left;
+	margin-top: 15px;
+	font-size: 18px;
+	font-family: "黑体";
+}
+
+.data02 {
+	font-size: 12px;
+}
+
+.data03 {
+	color: #dd0330;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.data04 {
+	color: #DD0330;
+}
+
+.data_btn input {
+	color: #FFFFFF;
+	background: #DD0330;
+	width: 75px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "stq",
+  "description": "biye",
+  "main": "",
+  "keywords": [
+    "123456"
+  ],
+  "authors": [
+    "stq"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

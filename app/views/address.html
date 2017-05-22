@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加地址</title>
+<link type="text/css" rel="stylesheet" href="/styles/address.css">
+<link type="text/css" rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+<div id="header">
+        <div class="header-layout">
+            <h2 class="header-title">添加地址</h2>
+            <ul class="header-nav">
+                <li class="nav-first">
+                    <a href="/" target="_blank">首页</a>
+                </li>
+                <li>
+                    <a href="/order" target="_blank">选购蛋糕</a>
+                </li>
+                <li>
+                    <a class="add_address">添加地址</a>
+                </li>
+                <li>
+                    <a href="/car">返回购物车</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <table class="member-grid">
+      <thead>
+        <tr>
+            <th>星球</th>
+            <th>洲际</th>
+            <th>详细地址</th>
+            <th>名字</th>
+            <th>电话</th>
+            <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% for(var i in adresss){ %>
+        <tr class="<%if(adresss[i].moren ==="1"){%>lighthigh<%}%> i-id-<%=adresss[i]._id%>">
+          <td><%=adresss[i].option%></td>
+            <td><%=adresss[i].option1%></td>
+            <td><%=adresss[i].address%></td>
+            <td><%=adresss[i].name%></td>
+            <td><%=adresss[i].telphone%></td>
+            <td><a style="margin:0px 5px;" class="action-set-default" data-id="<%=adresss[i]._id%>">设为默认</a>
+                <span class="label-default">默认地址</span>
+                <button style="font-size:20px; margin-left:10px;" type="button" class="del" data-id="<%=adresss[i]._id%>">删除</button>
+            </td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+    <form method="post" action="/adresss/new">
+    <div class="modal-dialog"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="close"></div>
+                <h4 class="modal-title" id="deliveryAddressLabel">添加地址</h4>
+            </div>
+            <div class="modal-body">
+                <div class="area-intro">太阳系？
+                <select name="adresss[option]" id="first" onchange="change()">
+                    <option>选择星球</option>
+                    <option>金</option>
+                    <option>木</option>
+                    <option>水</option>
+                    <option>火</option>
+                    <option>土</option>
+                    <option>天王</option>
+                    <option>海王</option>
+                    <option>冥王</option>
+                    <option>地球</option>
+                </select>
+                <select name="adresss[option1]" id="second">  
+                   <option>选择洲际</option>  
+                </select> 
+                </div>
+                <div class="form-group">
+                    <label for="new_address_popup">详细地址</label>
+                    <textarea name="adresss[address]" id="new_address_popup" class="form-control" value="<%=adresss.address%>" rows="3"></textarea>
+                </div>
+                <div class="form-group1">
+                    <label for="inputTitle">收货人姓名:</label>
+                    <input type="text" class="form-control" name="adresss[name]" value="<%=adresss.name%>" placeholder="收货人姓名">
+                </div>
+                <div class="form-group1">
+                    <label for="new_contact_popup">手机号码:</label>
+                    <input type="text" class="form-control" value="" id="new_tel_popup" name="adresss[telphone]" value="<%=adresss.telphone%>" placeholder="收货人手机号码">
+                </div>
+            <div class="modal-footer">
+                <a href="/address"><button type="submit" class="btn btn-primary">
+                    保存
+                </button></a>
+            </div>
+            </div>
+        </div>
+        </form>
+    <script>  
+    function change()  
+    {  
+       var x = document.getElementById("first");  
+       var y = document.getElementById("second");
+       y.options.length = 0; // 清除second下拉框的所有内容
+       if(x.selectedIndex == 9)  
+       {  
+            y.options.add(new Option("选择洲际")); 
+            y.options.add(new Option("亚细亚洲"));  
+            y.options.add(new Option("欧罗巴洲")); 
+            y.options.add(new Option("北亚美利加洲"));
+            y.options.add(new Option("南亚美利加洲"));
+            y.options.add(new Option("阿非利加州")); 
+            y.options.add(new Option("大洋洲")); 
+            y.options.add(new Option("南极洲")); 
+       }else
+       {  
+            y.options.add(new Option("选择粥际"));
+            y.options.add(new Option("腊八粥？"));
+            y.options.add(new Option("八宝粥？"));   
+       }  
+    } 
+</script>
+<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="/js/address.js"></script>
+</body>
+</html>

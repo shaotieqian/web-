@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加地址</title>
+<link type="text/css" rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+<div id="header">
+        <div class="header-layout">
+            <h2 class="header-title">蛋糕表单</h2>
+            <ul class="header-nav">
+                <li class="nav-first">
+                    <a href="/" target="_blank">首页</a>
+                </li>
+                <li>
+                    <a href="/order" target="_blank">列表页</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<table border="1">
+  <thead>
+    <tr>
+	    <th>蛋糕名字</th>
+  		<th>录入年份</th>
+  		<th>查看</th>
+  		<th>更新</th>
+  		<th>删除</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%for(var i in menu){%>
+    <tr class="i-id-<%=menu[i]._id%>">
+      <td><%=menu[i].title1%></td>
+  		<td><%=moment(menu[i].meta.updateAt).format("MM/DD/YYYY")%></td>
+  		<td><a href="/cake/<%=menu[i]._id%>" arget="_blank">查看</a></td>
+  		<td><a href="/admin/update/<%=menu[i]._id%>" arget="_blank">修改</a></td>
+  		<td><button style="font-size:25px;" class="del" type="button" data-id="<%=menu[i]._id%>">删除</button>
+    </tr>
+    <%}%>
+  </tbody>
+</table>
+<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="/js/cakedelete.js"></script>
+</body>
+</html>

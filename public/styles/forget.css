@@ -1,0 +1,313 @@
+body{
+    margin:0px;
+}
+h1{
+    margin:0px;
+}
+a{
+    text-decoration: none;
+}
+a:hover,a:visited{
+    text-decoration: underline;
+}
+@font-face {
+    font-family: "rei";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://i.alipayobjects.com/common/fonts/rei.eot?#iefix") format("embedded-opentype"), url("https://i.alipayobjects.com/common/fonts/rei.woff") format("woff"), url("https://i.alipayobjects.com/common/fonts/rei.ttf") format("truetype"), url("https://i.alipayobjects.com/common/fonts/rei.svg#rei") format("svg");
+}
+.hide{
+    display: none;
+}
+#header {
+    width:100%;
+    height:100px;
+    border-bottom: 1px solid #e3e3e3;
+    background-color: #f0f0f0;
+}
+
+.header-layout{
+    width:990px;
+    margin:0 auto;
+    padding:10px 0;
+    overflow: hidden;
+}
+
+.header-nav{
+    list-style: none;
+    width:auto;
+    height:14px;
+    float:right;
+    line-height: 14px;
+    margin:33px 0;
+}
+.header-nav li{
+    float:left;
+    padding:0 0 0 15px;
+    margin-right:15px;
+    border-left:1px solid #6c6c6c;
+}
+.header-nav li.nav-first{
+    border-left: 0;
+}
+.header-layout .logo{
+    float:left;
+    display: inline;
+    height:80px;
+}
+.header-layout .logo-title{
+    color:#959191;
+    display: inline-block;
+    float:left;
+    font-size:24px;
+    font-size:24px;
+    height:30px;
+    line-height:30px;
+    padding:5px 0 0 10px;
+    width:auto;
+}
+
+#logo{
+    background-position: 0 -12px;
+    background: url('http://my.mes.pc.com/themes/images/common/logo.png') no-repeat;
+}
+
+#logo a{
+    float:left;
+    display: inline-block;
+    height:80px;
+    width:178px;
+    overflow: hidden;
+}
+
+.header-nav li a{
+    color:#6c6c6c;
+}
+
+#content{
+    width:100%;
+    min-height:500px;
+    border-top:1px solid #fff;
+}
+
+.content-layout{
+    margin:0 auto;
+    padding:30px 0;
+    width:990px;
+    height:auto;
+}
+
+
+.maincenter{
+    height:auto;
+    margin:0 auto;
+    width:774px;
+}
+.ui-step{
+    display: block;
+}
+.maincenter .ui-step{
+    margin-bottom: 50px;
+}
+.maincenter-box{
+    background-color: #fff;
+    padding:80px 0;
+}
+
+.maincenter .ui-form{
+    color:#6c6c6c;
+    margin-top:30px;
+}
+
+
+.ui-form-item{
+    padding:0 5px 20px 190px;
+}
+
+.ui-label{
+    float:left;
+    font-size:14px;
+    margin-left:-220px;
+    padding-top:10px;
+    text-align:right;
+    width:210px;
+}
+
+.ui-label1{
+    float:left;
+    font-size:14px;
+    margin-left:-220px;
+    padding-top:20px;
+    text-align:right;
+    width:210px;
+}
+
+.ui-input{
+    border:1px solid #ddd;
+    line-height: 18px;
+    width:190px;
+    padding:8px 9px;
+}
+.ui-button {
+    background-image: none;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+}
+.ui-tiptext{
+    color:#6c6c6c;
+}
+
+.ui-button-lorange{
+    height:36px;
+    color: #fff;
+    line-height:36px;
+    min-width:150px;
+    background-color: #dd0330;
+    border:1px solid #dd0330;
+}
+
+.ui-step{
+    font-size:14px;
+    color:#b7b7b7;
+    padding:0 40px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.ui-step li{
+    float:left;
+    height:54px;
+    margin:0;
+    width:50%;
+    position:relative;
+}
+
+.ui-step li .ui-step-line{
+    height:3px;
+    background: #b9b9b9 none repeat scroll 0 0;
+    line-height:1;
+    margin-top:14px;
+    overflow: hidden;
+}
+.ui-step li .ui-step-icon{
+    height:50px;
+    left:-25px;
+    position:absolute;
+    text-align: center;
+    top:0;
+    width:150px;
+}
+
+.iconfont{
+    cursor:default;
+    font-family: rei;
+    font-style: normal;
+}
+.ui-step-icon .iconfont{
+    background: #fff none repeat scroll 0 0;
+    font-size: 30px;
+    line-height: 30px;
+    margin:0;
+    padding:0 10px;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.ui-step .ui-step-active .iconfont{
+    color:#dd0330;
+}
+.ui-step-icon .ui-step-number{
+    color:#fff;
+    font-style:normal;
+    font-weight:700;
+    left:0;
+    line-height:14px;
+    padding:0 20px;
+    position:absolute;
+    top:7px;
+}
+
+.ui-step-icon .ui-step-text{
+    height:20px;
+    left:-50px;
+    line-height:20px;
+    position:relative;
+    top:34px;
+}
+
+.ui-step li.ui-step-end{
+    position:absolute;
+    right:-110px;
+    top:0;
+    width:150px;
+}
+.ui-step .ui-step-active i.ui-step-number{
+    color:#fff;
+}
+
+.ui-step .ui-step-done .ui-step-line{
+    background: #dd0330;
+}
+
+.ui-step .ui-step-done .iconfont{
+    color:#dd0330;
+}
+
+.foot_layout{
+    height:80px;
+    margin:0 auto;
+    width:990px;
+}
+.copyright{
+    color:#858585;
+    text-align: center;
+}
+
+.verify-code{
+    display: inline-block;
+}
+
+.ui-form-item-error .ui-form-explain{
+    color:#FF5243;
+}
+.ui-form-explain{
+    margin:0;
+    font-size:12px;
+    color:#B2B2B2;
+}
+
+.ui-form-item-error .ui-input{
+    border:1px #ff6749 solid;
+    color:red;
+}
+
+.checkcode-wrap{
+    position:relative;
+    width:300px;
+}
+
+.ui-input-checkcode-new{
+    border:1px solid #ddd;
+    height:24px;
+    line-height: 24px;
+    padding:5px 10px;
+    width:278px;
+}
+
+.checkcode-wrap .getcheckcode{
+    background: #fff none repeat scroll 0 0;
+    border:0 none;
+    cursor:pointer;
+    position:absolute;
+    right:10px;
+    top:9px;
+}
+body .ft-orange{
+    color:#f40;
+}

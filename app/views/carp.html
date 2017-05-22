@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>购物车</title>
+<link type="text/css" rel="stylesheet" href="/styles/reset.css">
+<link type="text/css" rel="stylesheet" href="/styles/car.css">
+<link type="text/css" rel="stylesheet" href="/styles/swiper.2.7.6.css">
+</head>
+<body>
+<script style="text/javascript" src="/js/datePicker.js"></script>
+    <div class="topbox">
+        <div class="auto">
+            <div class="logo">
+                <a href="#"><img src="/images/gongyong/logo.png"></a>
+            </div>
+            <%if(user){%>
+            <ul class="nav">
+            <li><a href="/"><img style="vertical-align:middle" src="/images/gongyong/vip.png"><span>首页</span></a></li>
+                <li><a href="/order"><img style="vertical-align:middle" src="/images/gongyong/about_mes.png"><span>订购蛋糕</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/vip_area.png"><span>企业专区</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/order.png"><span>关于我们</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/home.png"><span><%=user.name%></span></a>
+                <div class="vip1">
+                    <div class="manage">
+                    <a href="/information">个人信息</a><br />
+                    </div>
+                    <div class="inf">
+                    <a href="/porder" >订单查看</a><br />
+                    </div>
+                    <div class="logout">
+                    <a href="/logout" id="logout">登出</a><br />
+                    </div>
+                    <div class="shopping_car">
+                                <p class="car"><img src="/images/gongyong/shopping_cart.png"/></p>
+                                <p class="car_shop">快去选购吧!</p>
+                    </div>
+                </div>
+                </li>
+            </ul>
+            <%}else{%>
+            <ul class="nav">
+                <li><a href="/"><img style="vertical-align:middle" src="/images/gongyong/vip.png"><span>首页</span></a></li>
+                <li><a href="/order"><img style="vertical-align:middle" src="/images/gongyong/about_mes.png"><span>订购蛋糕</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/vip_area.png"><span>企业专区</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/order.png"><span>关于我们</span></a></li>
+                <li><a href="#"><img style="vertical-align:middle" src="/images/gongyong/home.png"><span>会员登录</span></a>
+                <div class="vip">
+                    <div class="load" id="login">
+                    立即登陆<br />
+                    </div>
+                    <div class="reg" id="register">
+                    注册账号<br />
+                    </div>
+                </div>
+                </li>
+            </ul>
+            <%}%>
+            <!--弹出窗口-->
+            <div class="window_bg"></div>
+                <div id="login_window">
+                    <div class="data_title">
+                        <h4>用户登录</h4>
+
+                        <div id="lo_closed"></div>
+                    </div>
+                    <form method="POST" action="/user/signin">
+                        <p class="username"><img src="/images/gongyong/people.png"><input type="text" name="user[name]" placeholder="账号"></p>
+
+                        <p class="password"><img src="/images/gongyong/key.png"><input type="password" name="user[password]" placeholder="用户密码"></p>
+
+                        <p class="errorshow" id="login_error"></p>
+
+                        <p class="ret"><a href="/">忘记密码？</a></p>
+
+                        <button id="login_l" type="submit">登录</button>
+
+                        <p id="login_r">新用户注册</p>
+                    </form>
+                </div>
+
+                <div id="re_window">
+                    <div class="data_title">
+                        <h4>新用户注册</h4>
+
+                        <div id="re_closed"></div>
+                    </div>       
+
+                    <form method="POST" action="/user/signup">
+                        <p class="re_user"><input id="re_user" type="text" name="user[name]" placeholder="请输入账号">
+                        <p class="re_password"><input id="re_password"type="password" name="user[password]"  placeholder="设置6位以上的登录密码"></p>
+
+                        <p class="errorshow" id="error"></p>
+
+                        <button id="re_l" type="submit">注册</button>
+
+                        <p id="re_w">如果您已是注册用户，请您<span id="re_login">登录</span></p>
+
+                    </form>
+                </div>
+        </div>
+    </div>
+<form method="post" action="/porder/new">
+	<div class="con">
+        <div class="vip_auto">
+
+    <div class="vip_title"><img src="/images/car/vip_shoppingcart.png"><span>购物车</span></div>
+
+    <div class="cart_table">
+        <ul>
+            <li class="li00">全选</li>
+            <input id="CheckAll"  type="checkbox" />
+            <li class="li01">商品</li>
+            <li class="li02">数量</li>
+            <li class="li03">单价</li>
+            <li class="li04">小计</li>
+            <li class="li05">删除</li>
+        </ul>
+        <form method="post" action="/porder/new">
+        <table class="tab_number" >
+        <% for(var cart in car){ if(!car[cart].cid)continue %>
+            <tr class="i-id-<%=car[cart]._id%>">
+                <td class="table00">
+                    <div class="checkbox">
+                        <input name="order[chkItem]" type="checkbox" data-index="<%=cart%>" data-price="<%=car[cart].cprice%>" data-id="<%=car[cart]._id%>"  value="<%=car[cart].cname%> <%=car[cart].cprice%> <%=car[cart].cquantity%>"/>
+                    </div>
+                </td>
+                <td class="table01">
+                    <div class="table01_1"><img src="/upload/<%=car[cart].cposter%>" style="height:100px;width:100px"></div>
+                    <div class="table01_2">
+                        <p class="table01_21"><%=car[cart].cname%></p>
+                        <p class="table01_22"><%=car[cart].ctitle%></p>
+                    </div>
+                </td>
+                <td class="table02" name="c" data-index="<%=cart%>" data-price="<%=car[cart].cprice%>">
+                    <input data-type="subtr" class="min"  type="button" value="-" />
+                    <input name="order[num]" id="q<%=cart%>" class="text_box" type="text" value="<%=car[cart].cquantity%>" />
+                    <input data-type='add' class="add"  type="button" value="+" />
+                    <span class="tapr01">￥</span><span class="price"><%=car[cart].cprice%></span>
+                    <span class="tapr02">￥</span><span id="subtotal<%=cart%>" class="subtotal"><%=car[cart].cprice%></span>
+                </td>
+                <td class="table04">
+
+                </td>
+                <td class="table03">
+
+                </td>
+                <td class="table05">
+                    <button class="deltable del" type="button" data-id="<%=car[cart]._id%>"><img src="/images/car/vip_recycle.png"></button>
+                </td>
+            </tr>
+            <%}%>
+            <input type="hidden" class="">
+        </table>
+
+        <table class="tab_number1" id="canju_table">
+            <tr>
+                <td class="table01">
+                    <div class="table01_1"><img src="/images/car/canju.png"></div>
+                    <div class="table01_2">
+                        <p class="table01_21">付费餐具</p>
+                        <P class="table01_23"><span>规格：1套</span></P>
+                    </div>
+                </td>
+                <td class="table02">
+                    <input class="min" type="button" value="-" />
+                    <input class="text_box" type="text" value="1" />
+                    <input class="add" type="button" value="+" />
+                    <span class="tapr01">￥</span><span class="price">0.00</span>
+                    <span class="tapr02">￥</span><span class="subtotal">0.00</span>
+                </td>
+                <td class="table03"></td>
+                <td class="table04"></td>
+                <td class="table04"><button class="deltable" type="button"><img src="/images/car/vip_recycle.png"></button></td>
+            </tr>
+        </table>
+            <div class="cart_total">
+                <p class="cart_total01">
+                    <p id="addPayCanjuBtn">添加额外餐具</p>
+                </p>
+                <p class="cart_total02"><label id="money"></label><b>￥</b><span>总计:</span></p>
+                <div class="datepay">
+                    <p class="date">送货时期:</p>
+                    <input id="demo1" name="order[date]">
+                        <script>
+                        var calendar = new datePicker();
+                    calendar.init({
+                        'trigger': '#demo1', /*按钮选择器，用于触发弹出插件*/
+                        'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                        'minDate':'1900-1-1',/*最小日期*/
+                        'maxDate':'2100-12-31',/*最大日期*/
+                        'onSubmit':function(){/*确认时触发事件*/
+                            var theSelectData=calendar.value;
+                        },
+                        'onClose':function(){/*取消时触发事件*/
+                        }
+                    });
+                        </script>
+                    <select id="time" name="order[time]">
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                    </select>
+                    <select id="time" name="order[time1]">
+                        <option>0~30</option>
+                        <option>31~60</option>
+                    </select>
+                    <p class="date">送货地址: </p>
+                    <% for(var i in adresss){ %>
+                    <%if(adresss[i].moren === "1"){%>
+                    <p class="date"><%=adresss[i].address%></p>
+                    <%}%>
+                    <%}%>
+                    <a href="/address" class="add_address">填写地址</a>
+                </div>
+                <p class="cart_total03"><button type="submit" class="cart_totalo">进入结算</button>
+                <a href="/order" class="cart_totals">继续购物</a></p>
+            </div>
+    </div>
+    </div>
+    </div>
+    </form>
+<!--footer-->
+    <div class="footer">
+        <div class="auto">
+            <div class="foot_title">
+                <div class="ft_01">
+                    <img src="/images/gongyong/index.jpg">
+                    <div class="ft_01_t">下午茶</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index01.png"></span><br/>
+                        <span class="ft_01_t1_2">下午茶</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index1.jpg">
+                    <div class="ft_01_t">时令</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index02.png"></span><br/>
+                        <span class="ft_01_t1_2">时令</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index2.jpg">
+                    <div class="ft_01_t">咖啡</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index03.png"></span><br/>
+                        <span class="ft_01_t1_2">咖啡</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index3.jpg">
+                    <div class="ft_01_t">周边品</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index04.png"></span><br/>
+                        <span class="ft_01_t1_2">周边品</span>
+                    </div>
+                </div>
+                <div class="ft_01 ft_marl">
+                    <img src="/images/gongyong/index4.jpg">
+                    <div class="ft_01_t">每实专题</div>
+                    <div class="ft_01_t_bg"></div>
+                    <div class="ft_01_t1">
+                        <span class="ft_01_t1_1"><img src="/images/gongyong/index05.png"></span><br/>
+                        <span class="ft_01_t1_2">每实专题</span>
+                    </div>
+                </div>
+            </div>
+            <div class="foot_line"></div>
+            <div class="foot_logo">
+                <img src="/images/gongyong/logo.png"/>
+            </div>
+            <div class="foot_nav">
+                <ul>
+                    <a href="#"><li class="liactive">首页</li></a>
+                    <a href="#"><li>订购蛋糕</li></a>
+                    <li>各种专区</li>
+                    <li>各种专题</li>
+                    <a href="#"><li>关于我们</li></a>
+                    <a id="foot_login"><li>会员登录</li></a>
+                </ul>
+            </div>
+            <div class="foot_about">
+                <div class="about_us">
+                    <img src="/images/gongyong/phone.png"/>
+                    <span>订购咨询热线：</span>
+                    <span class="about_size">1000 200 300</span>
+                    <img class="foot_mess" src="/images/gongyong/message.png"/>
+                    <a href="#">联系我们</a>
+                </div>
+            </div>
+            <div class="foot_ts">
+                <ul>
+                    <li class="tiactive">至少提前5年订购</li>
+                    <li>全宇宙免费配送</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="foot_foot">
+            <p>宇宙ICP备12345678号 宇宙公网安备12345678910111号</p>
+            <p class="foot_ms">2017 All rights reserved</p>
+        </div>
+    </div>
+</body>
+    <script style="text/javascript" src="/js/jquery-3.1.1.js"></script>
+    <script style="text/javascript" src="/js/common.js"></script>
+    <script style="text/javascript" src="/js/car.js"></script>
+</html>
